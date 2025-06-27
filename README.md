@@ -13,3 +13,7 @@ composer require laravel/jetstream
 ```bash
 php artisan jetstream:install livewire
 ```
+
+### navigation-photo
+
+En el archivo `jetstream.php` descomentar la linea `Features::profilePhotos()` para que en el menu de navegacion en lugar del nombre se muestre la foto del usuario.
