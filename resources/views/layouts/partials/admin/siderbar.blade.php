@@ -1,4 +1,5 @@
 @php
+    // enlaces a mostrar en el menu lateral
     $links = [
         [
             'icon' => 'fa-solid fa-gauge',
