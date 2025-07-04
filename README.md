@@ -16,4 +16,22 @@ php artisan jetstream:install livewire
 
 ### navigation-photo
 
-En el archivo `jetstream.php` descomentar la linea `Features::profilePhotos()` para que en el menu de navegacion en lugar del nombre se muestre la foto del usuario.
+En el archivo `jetstream.php` descomentar la linea `Features::profilePhotos()` para que en el menu de navegacion en lugar del nombre del usuario se muestre la foto del mismo.
+
+## Traducir aplicacion a español
+
+```bash
+composer require laravel-lang/common
+```
+
+Añadir nuevas localizaciones
+
+```bash
+php artisan lang:add es
+```
+
+En el archivo `.env` modificar el valor de la variable de entorno `APP_LOCALE`
+
+```.env
+APP_LOCALE=es
+```
