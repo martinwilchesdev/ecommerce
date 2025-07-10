@@ -59,6 +59,9 @@
         </div>
     </div>
     @livewireScripts
+
+    {{-- especifica que dentro del layout se podra ejecutar codigo de javascript, especificamente donde se use la directiva `@push` --}}
+    @stack('js')
 </body>
 
 </html>
