@@ -38,7 +38,20 @@
         <script>
             // eliminar familia
             function confirmDelete() {
-                document.getElementById('delete-form').submit() // enviar el formulario de eliminacion
+                Swal.fire({
+                    title: "¿Estás seguro?",
+                    text: "Esta acción no se puede revertir",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Aceptar",
+                    cancelButtonText: "Cancelar"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById('delete-form').submit()
+                    }
+                })
             }
         </script>
     @endpush

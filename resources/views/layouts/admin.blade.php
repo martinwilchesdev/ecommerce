@@ -58,10 +58,22 @@
             </div>
         </div>
     </div>
+
+    {{-- sweet alert --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     @livewireScripts
 
     {{-- especifica que dentro del layout se podra ejecutar codigo de javascript, especificamente donde se use la directiva `@push` --}}
     @stack('js')
+
+    {{-- variable de sesion flash llamada `swal` --}}
+    @if (session('swal'))
+        <script>
+            // `json_encode()` convierte el array PHP en un array valido de JavaScript
+            Swal.fire({!! json_encode(session('swal')) !!})
+        </script>
+    @endif
 </body>
 
 </html>
