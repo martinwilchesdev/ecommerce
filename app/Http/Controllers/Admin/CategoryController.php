@@ -66,7 +66,9 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        $families = Family::orderBy('id')->get();
+
+        return view('admin.categories.edit', compact('category', 'families'));
     }
 
     /**
@@ -74,7 +76,20 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $request->validate([
+            'name' => 'required|string',
+            'family_id' => 'required|integer'
+        ]);
+
+        $category->update($request->all());
+
+        session()->flash('swal', [
+            'title' => 'Éxito',
+            'text' => 'Categoría actualizada correctamente',
+            'icon' => 'success'
+        ]);
+
+        return redirect()->route('admin.categories.edit', $category);
     }
 
     /**
