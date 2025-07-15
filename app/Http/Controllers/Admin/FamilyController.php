@@ -31,7 +31,7 @@ class FamilyController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required'
+            'name' => 'required|string'
         ]);
 
         Family::create([
@@ -42,7 +42,6 @@ class FamilyController extends Controller
             'title' => 'Éxito',
             'text' => 'Familia creada correctamente',
             'icon' => 'success',
-            'draggable' => true
         ]);
 
         return redirect()->route('admin.families.index');
@@ -78,8 +77,7 @@ class FamilyController extends Controller
         session()->flash('swal', [
             'title' => 'Éxito',
             'text' => 'Familia actualizada correctamente',
-            'icon' => 'success',
-            'draggable' => true
+            'icon' => 'success'
         ]);
 
         return redirect()->route('admin.families.edit', compact('family'));
