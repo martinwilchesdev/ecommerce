@@ -36,9 +36,9 @@
     {{-- directiva que admite codigo de javascript --}}
     @push('js')
         <script>
-            // eliminar familia
-            function confirmDelete() {
-                Swal.fire({
+            // confirmar la eliminacion de una familia
+            async function confirmDelete() {
+                const deleteFamily = await Swal.fire({
                     title: "¿Estás seguro?",
                     text: "Esta acción no se puede revertir",
                     icon: "warning",
@@ -47,11 +47,11 @@
                     cancelButtonColor: "#d33",
                     confirmButtonText: "Aceptar",
                     cancelButtonText: "Cancelar"
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        document.getElementById('delete-form').submit()
-                    }
                 })
+
+                if (deleteFamily.isConfirmed) {
+                    document.getElementById('delete-form').submit()
+                }
             }
         </script>
     @endpush

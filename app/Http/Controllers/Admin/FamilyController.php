@@ -40,7 +40,7 @@ class FamilyController extends Controller
 
         session()->flash('swal', [
             'title' => 'Éxito',
-            'text' => 'Familia creada correctamente',
+            'text' => 'Familia creada correctamente.',
             'icon' => 'success',
         ]);
 
@@ -76,7 +76,7 @@ class FamilyController extends Controller
 
         session()->flash('swal', [
             'title' => 'Éxito',
-            'text' => 'Familia actualizada correctamente',
+            'text' => 'Familia actualizada correctamente.',
             'icon' => 'success'
         ]);
 
@@ -91,7 +91,7 @@ class FamilyController extends Controller
         if ($family->categories->count() > 0) {
             session()->flash('swal', [
                 'title' => 'Error',
-                'text' => 'La familia tiene categorias asociadas',
+                'text' => 'La familia tiene categorias asociadas.',
                 'icon' => 'error'
             ]);
 
