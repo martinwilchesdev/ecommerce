@@ -47,6 +47,7 @@
             <div class="flex justify-between items-center">
                 @include('layouts.partials.admin.breadcrumb')
 
+                {{-- se recibe el slot con nombre --}}
                 @isset($action)
                     <div>
                         {{ $action }}

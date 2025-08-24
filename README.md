@@ -35,3 +35,9 @@ En el archivo `.env` modificar el valor de la variable de entorno `APP_LOCALE`
 ```.env
 APP_LOCALE=es
 ```
+
+## barrydvh/laravel-debugbar
+
+```bash
+composer require barrydvh/laravel-debugbar
+```

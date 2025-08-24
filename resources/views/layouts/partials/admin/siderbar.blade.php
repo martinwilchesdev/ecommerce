@@ -17,9 +17,16 @@
         // categorias de productos
         [
             'icon' => 'fa-solid fa-tags',
-            'name' => 'Categorias',
+            'name' => 'Categorías',
             'path' => route('admin.categories.index'),
             'active' => request()->routeIs('admin.categories.*')
+        ],
+        // subcategorias de productos
+        [
+            'icon' => 'fa-solid fa-tag',
+            'name' => 'Subcategorías',
+            'path' => route('admin.subcategories.index'),
+            'active' => request()->routeIs('admin.subcategories.*')
         ]
     ];
 @endphp
@@ -36,7 +43,7 @@
             @foreach ($links as $link)
                 <li>
                     <a href="{{ $link['path'] }}"
-                        class="flex items-center p-2 text-gray-900 rounded-lg {{ $link['active'] ? 'bg-gray-300' : '' }} dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        class="flex items-center p-2 text-gray-900 rounded-lg {{ $link['active'] ? 'bg-gray-700' : '' }} dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <span class="inline-flex w-6 h-6 justify-center items-center">
                             <i class="{{ $link['icon'] }}" class="text-gray-500"></i>
                         </span>
