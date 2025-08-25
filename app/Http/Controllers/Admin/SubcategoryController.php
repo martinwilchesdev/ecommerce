@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\subcategory;
 use Illuminate\Http\Request;
 
@@ -25,8 +26,9 @@ class SubcategoryController extends Controller
      */
     public function create()
     {
-        //
-        return view('admin.subcategories.create');
+        $categories = Category::all();
+
+        return view('admin.subcategories.create', compact('categories'));
     }
 
     /**
@@ -34,7 +36,23 @@ class SubcategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'category_id' => 'required|integer',
+            'name' => 'required|string'
+        ]);
+
+        Subcategory::create([
+            'category_id' => $request->category_id,
+            'name' => $request->name
+        ]);
+
+        session()->flash('swal',[
+            'title' => 'Éxito',
+            'text' => 'Subcategoría creada correctamente',
+            'icon' => 'success'
+        ]);
+
+        return redirect()->route('admin.subcategories.index');
     }
 
     /**
